@@ -32,11 +32,26 @@
 $ npm install
 
 BASH
-docker container run --name nest-app -w //app -dp 80:3000 -v /$(pwd):/app node:18.14.0-alpine sh -c "yarn install && yarn start:dev"
+$ docker container run --name nest-app -w //app -dp 80:3000 -v /$(pwd):/app node:18.14.0-alpine sh -c "yarn install && yarn start:dev"
 POWERSHELL 
-docker container run --name nest-app -dp 80:3000 -v ${pwd}:/app -w /app node:18.14.0-alpine sh -c "yarn install && yarn start:dev"
+> docker container run --name nest-app -dp 80:3000 -v ${pwd}:/app -w /app node:18.14.0-alpine sh -c "yarn install && yarn start:dev"
 
+$ docker start <id:35b>
+$ docker container logs -f <id>
+$ docker exec -it <id> 
 
+BASH
+winpty docker exec -it <container-id> //bin/sh
+
+POWERSHELL
+> docker exec -it 35b /bin/sh
+  ________
+  cd ../app && ls
+  cd src/hello-world
+  vi hello-world.resolver.ts
+  >> inside to edit i
+  >> inside to exit ESC :wq
+>exit
 ```
 
 ## Running the app
